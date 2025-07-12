@@ -8,11 +8,11 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <None Include="..\..\License.md" Visible="false">
+    <None Include="..\License.md" Visible="false">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-    <None Include="..\..\Readme.md" Visible="false">
+    <None Include="..\Readme.md" Visible="false">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
