@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entish", "Entish\Entish.csproj", "{88F195A3-921F-4BB2-B5D0-814A2C6E7FDC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entish.SourceGenerator", "Entish.SourceGenerator\Entish.SourceGenerator.csproj", "{90F496ED-6EAE-4742-9DF5-59113DAADA1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entish.Tests", "Entish.Tests\Entish.Tests.csproj", "{73F28111-4816-4A53-9EB9-1A38AF50C500}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{88F195A3-921F-4BB2-B5D0-814A2C6E7FDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88F195A3-921F-4BB2-B5D0-814A2C6E7FDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88F195A3-921F-4BB2-B5D0-814A2C6E7FDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88F195A3-921F-4BB2-B5D0-814A2C6E7FDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90F496ED-6EAE-4742-9DF5-59113DAADA1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90F496ED-6EAE-4742-9DF5-59113DAADA1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90F496ED-6EAE-4742-9DF5-59113DAADA1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90F496ED-6EAE-4742-9DF5-59113DAADA1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73F28111-4816-4A53-9EB9-1A38AF50C500}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73F28111-4816-4A53-9EB9-1A38AF50C500}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73F28111-4816-4A53-9EB9-1A38AF50C500}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73F28111-4816-4A53-9EB9-1A38AF50C500}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
