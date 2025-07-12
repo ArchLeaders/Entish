@@ -11,7 +11,6 @@ env:
   readme: ./Readme.md
   license: ./License.md
   repo: https://github.com/ArchLeaders/Entish
-  spdx: MIT
   tags: binary;io;zero-allocation;endian
 
 jobs:
@@ -56,7 +55,6 @@ jobs:
           -c Release                                                             \
           -o ./build-output/                                                     \
           -p:Authors="${{ env.authors }}"                                        \
-          -p:PackageLicenseExpression="${{ env.spdx }}"                          \
           -p:PackageLicenseFile="${{ env.license }}"                             \
           -p:PackageProjectUrl="${{ env.repo }}"                                 \
           -p:PackageReadmeFile="${{ env.readme }}"                               \
