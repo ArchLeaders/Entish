@@ -57,7 +57,7 @@ jobs:
           -o ./build-output/                                                     \
           -p:Authors="${{ env.authors }}"                                        \
           -p:PackageLicenseExpression="${{ env.spdx }}"                          \
-          -p:PackageLicenseExpression="${{ env.license }}"                       \
+          -p:PackageLicenseFile="${{ env.license }}"                             \
           -p:PackageProjectUrl="${{ env.repo }}"                                 \
           -p:PackageReadmeFile="${{ env.readme }}"                               \
           -p:PackageTags='"${{ env.tags }}"'                                     \
