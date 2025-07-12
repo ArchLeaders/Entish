@@ -7,7 +7,7 @@ public static class SymbolExtensions
     public static IEnumerable<IFieldSymbol> PickOptimalFields(this IEnumerable<IFieldSymbol> fields, ISymbol fieldOffsetAttributeType)
     {
         return fields
-            .OrderBy(field => field.Type.IsRawType())
+            .OrderBy(field => field.Type.CanSwapWithoutCast())
             .GroupBy(field => (int)field.GetAttributes()
                 .FirstOrDefault(x => SymbolEqualityComparer.Default.Equals(x.AttributeClass, fieldOffsetAttributeType))!
                 .ConstructorArguments[0].Value!
@@ -20,9 +20,8 @@ public static class SymbolExtensions
     /// </summary>
     /// <param name="type"></param>
     /// <returns></returns>
-    private static bool IsRawType(this ITypeSymbol type)
+    private static bool CanSwapWithoutCast(this ITypeSymbol type)
         => type.SpecialType is
-            SpecialType.System_Char or SpecialType.System_Int16 or
-            SpecialType.System_UInt16 or SpecialType.System_UInt32 or SpecialType.System_UInt64 or
-            SpecialType.System_DateTime or SpecialType.System_UIntPtr or SpecialType.System_Decimal;
+            SpecialType.System_UInt16 or SpecialType.System_UInt32 or
+            SpecialType.System_UInt64 or SpecialType.System_UIntPtr;
 }
