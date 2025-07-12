@@ -1,3 +1,4 @@
+using System.Diagnostics.Contracts;
 using System.Numerics;
 using System.Runtime.CompilerServices;
 
@@ -12,6 +13,7 @@ public static class MathUtils
     /// <param name="value">The value to align.</param>
     /// <param name="size">The alignment size.</param>
     /// <returns></returns>
+    [Pure]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static T AlignUp<T>(this T value, T size) where T : ISubtractionOperators<T, T, T>, IModulusOperators<T, T, T>
     {
@@ -25,6 +27,7 @@ public static class MathUtils
     /// <param name="value">The value to align.</param>
     /// <param name="size">The alignment size.</param>
     /// <returns></returns>
+    [Pure]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static T AlignDown<T>(this T value, T size) where T : IUnaryNegationOperators<T, T>, IModulusOperators<T, T, T>
     {
