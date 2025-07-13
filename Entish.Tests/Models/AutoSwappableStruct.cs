@@ -33,7 +33,7 @@ public partial struct AutoSwappableStruct
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = 2)]
-public partial struct NestedAutoGenStruct
+public struct NestedAutoGenStruct
 {
     public int Int32;
     
@@ -51,13 +51,15 @@ public struct PrimitiveStruct
     
     public long Int64_2;
     
-    public PrimitiveStruct2 SubStruct;
+    public PrimitiveUnion SubStruct;
 }
 
-[StructLayout(LayoutKind.Sequential, Pack = 2)]
-public struct PrimitiveStruct2
+[StructLayout(LayoutKind.Explicit, Pack = 2)]
+public struct PrimitiveUnion
 {
-    public ushort Int16;
+    [FieldOffset(0)]
+    public ushort UInt16;
     
-    public long Int64;
+    [FieldOffset(0)]
+    public short Int16;
 }

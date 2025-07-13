@@ -7,7 +7,7 @@ public static class SymbolExtensions
     public static IEnumerable<IFieldSymbol> PickOptimalFields(this IEnumerable<IFieldSymbol> fields, ISymbol fieldOffsetAttributeType)
     {
         return fields
-            .OrderBy(field => field.Type.CanSwapWithoutCast())
+            .OrderByDescending(field => field.Type.CanSwapWithoutCast())
             .GroupBy(field => (int)field.GetAttributes()
                 .FirstOrDefault(x => SymbolEqualityComparer.Default.Equals(x.AttributeClass, fieldOffsetAttributeType))!
                 .ConstructorArguments[0].Value!
