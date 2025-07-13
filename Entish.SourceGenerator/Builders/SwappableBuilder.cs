@@ -139,7 +139,9 @@ public class SwappableBuilder(SourceProductionContext context, Compilation compi
     }
     
     private static bool IsSingleByte(ITypeSymbol type)
-        => type.SpecialType is SpecialType.System_Byte or SpecialType.System_SByte or SpecialType.System_Boolean;
+        => type is INamedTypeSymbol {
+            EnumUnderlyingType.SpecialType: SpecialType.System_Byte or SpecialType.System_SByte
+        } || type.SpecialType is SpecialType.System_Byte or SpecialType.System_SByte or SpecialType.System_Boolean;
 
     private static bool IsSimpleType(ITypeSymbol type, out bool isEnum)
         => (isEnum = type.TypeKind is TypeKind.Enum) || type.SpecialType is

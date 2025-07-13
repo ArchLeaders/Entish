@@ -3,6 +3,13 @@ using Entish.Attributes;
 
 namespace Entish.Tests.Models;
 
+public enum ByteEnum : byte
+{
+    A,
+    B,
+    C
+}
+
 public enum TestEnum : ushort
 {
     A,
@@ -26,6 +33,8 @@ public partial struct AutoSwappableStruct
     public PrimitiveStruct Primitive;
     
     public byte Byte;
+    
+    public ByteEnum ByteEnum;
     
     public TestEnum TestEnum;
     
