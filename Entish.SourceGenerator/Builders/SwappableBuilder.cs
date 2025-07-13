@@ -70,7 +70,7 @@ public class SwappableBuilder(SourceProductionContext context, Compilation compi
 
         if (structLayoutAttribute?.ConstructorArguments.FirstOrDefault() is {
                 Kind: TypedConstantKind.Enum,
-                Value: LayoutKind.Explicit
+                Value: (int)LayoutKind.Explicit
             }) {
             // Pick the best fields to swap
             // in the case of a union struct 
@@ -109,10 +109,10 @@ public class SwappableBuilder(SourceProductionContext context, Compilation compi
             return;
         }
 
-        if (IsSimpleType(field.Type)) {
+        if (IsSimpleType(field.Type, out bool isEnum)) {
             sb.Append($"""
 
-                        global::Entish.EndianUtils.Swap(&{varName}->{field.Name});
+                        global::Entish.EndianUtils.Swap({(isEnum ? $"({((INamedTypeSymbol)field.Type).EnumUnderlyingType?.ToDisplayString(NullableFlowState.NotNull, SymbolDisplayFormat.FullyQualifiedFormat)}*)" : "")}&{varName}->{field.Name});
                 """);
             return;
         }
@@ -141,8 +141,8 @@ public class SwappableBuilder(SourceProductionContext context, Compilation compi
     private static bool IsSingleByte(ITypeSymbol type)
         => type.SpecialType is SpecialType.System_Byte or SpecialType.System_SByte or SpecialType.System_Boolean;
 
-    private static bool IsSimpleType(ITypeSymbol type)
-        => type.SpecialType is
+    private static bool IsSimpleType(ITypeSymbol type, out bool isEnum)
+        => (isEnum = type.TypeKind is TypeKind.Enum) || type.SpecialType is
             SpecialType.System_Byte or SpecialType.System_SByte or SpecialType.System_Boolean or
             SpecialType.System_Char or SpecialType.System_Int16 or SpecialType.System_UInt16 or
             SpecialType.System_Int32 or SpecialType.System_UInt32 or SpecialType.System_Single or

@@ -3,6 +3,13 @@ using Entish.Attributes;
 
 namespace Entish.Tests.Models;
 
+public enum TestEnum : ushort
+{
+    A,
+    B,
+    C
+}
+
 [Swappable]
 [StructLayout(LayoutKind.Sequential, Pack = 4)]
 public partial struct AutoSwappableStruct
@@ -19,6 +26,8 @@ public partial struct AutoSwappableStruct
     public PrimitiveStruct Primitive;
     
     public byte Byte;
+    
+    public TestEnum TestEnum;
     
     public unsafe fixed int Fixed[4];
 }
