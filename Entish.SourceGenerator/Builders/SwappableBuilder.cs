@@ -132,7 +132,7 @@ public class SwappableBuilder(SourceProductionContext context, Compilation compi
         string complexTypeVarName = $"{varName}{field.Name}";
         sb.Append($"""
 
-                    var {complexTypeVarName} = &{varName}->{field.Name};
+                    {field.Type.ToDisplayString(NullableFlowState.NotNull, SymbolDisplayFormat.FullyQualifiedFormat)}* {complexTypeVarName} = &{varName}->{field.Name};
             """);
         
         WriteStructSwapCode(sb, (INamedTypeSymbol)field.Type, complexTypeVarName);
