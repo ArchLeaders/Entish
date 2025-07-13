@@ -86,7 +86,7 @@ public class SwappableBuilder(SourceProductionContext context, Compilation compi
     {
         ITypeSymbol fieldType = field.Type;
         
-        if (IsSingleByte(fieldType)) {
+        if (IsSingleByte(fieldType) || field.IsConst) {
             return;
         }
 
